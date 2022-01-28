@@ -1,38 +1,38 @@
-import { Component } from "react";
+// import { Component } from "react";
 
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
-class Modal extends Component {
-  componentDidMount() {
-    window.addEventListener("keydown", this.handleKeydown);
-  }
+// class Modal extends Component {
+//   componentDidMount() {
+//     window.addEventListener("keydown", this.handleKeydown);
+//   }
 
-  componentWillUnmount() {
-    window.removeEventListener("keydown", this.handleKeydown);
-  }
+//   componentWillUnmount() {
+//     window.removeEventListener("keydown", this.handleKeydown);
+//   }
 
-  handleKeydown = (evt) => {
-    if (evt.code === "Escape") {
-      this.props.onToggle();
-    }
-  };
+//   handleKeydown = (evt) => {
+//     if (evt.code === "Escape") {
+//       this.props.onToggle();
+//     }
+//   };
 
-  handleBackdropClick = (evt) => {
-    if (evt.currentTarget === evt.target) {
-      this.props.onToggle();
-    }
-  };
+//   handleBackdropClick = (evt) => {
+//     if (evt.currentTarget === evt.target) {
+//       this.props.onToggle();
+//     }
+//   };
 
-  render() {
-    return (
-      <div onClick={this.handleBackdropClick}>
-        <div>{this.props.children}</div>
-      </div>
-    );
-  }
-}
-export default Modal;
+//   render() {
+//     return (
+//       <div onClick={this.handleBackdropClick}>
+//         <div>{this.props.children}</div>
+//       </div>
+//     );
+//   }
+// }
+// export default Modal;
 
-Modal.propTypes = {
-  onToggle: PropTypes.func.isRequired,
-};
+// Modal.propTypes = {
+//   onToggle: PropTypes.func.isRequired,
+// };

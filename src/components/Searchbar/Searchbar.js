@@ -1,12 +1,36 @@
+import { Component } from 'react';
+import {
+  Form,
+  Button,
+  Input
+} from './Searchbar.styled';
 
+export default class Searchbar extends Component {
+  state = {
+    imageName: '',
+  };
 
-<header class="searchbar">
+handleNameChange = event => {
+  this.setState({ imageName: event.currentTarget.value.toLowerCase() });
+}
+ 
+handleSubmit = event => {
+  event.preventDefault();
+
+  this.props.onSubmit(this.state.imageName);
+  this.setState({ imageName: '' });
+}
+
+  render() {
+    return (
+      <Form>
+    <header class="searchbar">
   <form class="form">
-    <button type="submit" class="button">
+    <Button type="submit" class="button">
       <span class="button-label">Search</span>
-    </button>
+    </Button>
 
-    <input
+    <Input
       class="input"
       type="text"
       autocomplete="off"
@@ -14,4 +38,10 @@
       placeholder="Search images and photos"
     />
   </form>
-</header>
+</header> 
+</Form>
+  )
+}
+
+}
+
