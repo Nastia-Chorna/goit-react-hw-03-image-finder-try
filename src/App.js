@@ -12,16 +12,14 @@ class App extends Component {
     filter: '',
     showModal: false,
     images: null,
+    imageName: ''
   };
 
- 
-  
-
- componentDidMount() {
-    fetch('https://pixabay.com/api/?q=cat&page=1&key=your_key&image_type=photo&orientation=horizontal&per_page=12')
-      .then(res => res.json())
-      .then(images => this.setState({ images }));
-  }
+//  componentDidMount() {
+//     fetch('https://pixabay.com/api/?q=cat&page=1&key=your_key&image_type=photo&orientation=horizontal&per_page=12')
+//       .then(res => res.json())
+//       .then(images => this.setState({ images }));
+//   }
   
   toggleModal = () => {
     this.setState(({showModal}) => ({
@@ -29,12 +27,14 @@ class App extends Component {
   }))
 }
 
-
+  handleSearchSubmit = imageName => {
+    this.setState({ imageName });
+} 
   render() {
    
     return (
       <div>
-        <Searchbar />
+        <Searchbar onSubmit={this.handleSearchSubmit}/>
       </div>
     )
   };

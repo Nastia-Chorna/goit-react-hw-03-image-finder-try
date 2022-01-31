@@ -1,4 +1,4 @@
 
-<li class="gallery-item">
-  <img src="" alt="" />
-</li>
+// <li >
+//   <img src="" alt="" />
+// </li>

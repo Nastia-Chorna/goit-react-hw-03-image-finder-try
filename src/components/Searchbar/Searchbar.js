@@ -4,6 +4,7 @@ import {
   Button,
   Input
 } from './Searchbar.styled';
+import PropTypes from 'prop-types';
 
 export default class Searchbar extends Component {
   state = {
@@ -16,7 +17,10 @@ handleNameChange = event => {
  
 handleSubmit = event => {
   event.preventDefault();
-
+  if (this.state.imageName.trim() === '') {
+    alert('Enter your image name');
+    return;
+}
   this.props.onSubmit(this.state.imageName);
   this.setState({ imageName: '' });
 }
@@ -24,17 +28,17 @@ handleSubmit = event => {
   render() {
     return (
       <Form>
-    <header class="searchbar">
-  <form class="form">
-    <Button type="submit" class="button">
-      <span class="button-label">Search</span>
+    <header>
+  <form>
+    <Button type="submit">
+      <span>Search</span>
     </Button>
 
     <Input
       class="input"
       type="text"
       autocomplete="off"
-      autofocus
+      autoFocus
       placeholder="Search images and photos"
     />
   </form>
@@ -44,4 +48,6 @@ handleSubmit = event => {
 }
 
 }
-
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
