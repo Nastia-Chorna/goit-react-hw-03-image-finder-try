@@ -1,4 +1,6 @@
 import { Component } from 'react';
+import { toast} from 'react-toastify';
+
 import {
   Form,
   Button,
@@ -18,8 +20,9 @@ handleNameChange = event => {
 handleSubmit = event => {
   event.preventDefault();
   if (this.state.imageName.trim() === '') {
-    alert('Enter your image name');
+    toast('Enter your image name');
     return;
+    
 }
   this.props.onSubmit(this.state.imageName);
   this.setState({ imageName: '' });
@@ -35,7 +38,7 @@ handleSubmit = event => {
     </Button>
 
     <Input
-      class="input"
+      className="input"
       type="text"
       autocomplete="off"
       autoFocus
